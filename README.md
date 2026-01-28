@@ -1,23 +1,32 @@
-# Clustering DBSCAN em Dados Geográficos de Logística
+# DBSCAN Clustering on Geographical Logistics Data
 
-Este projeto apresenta uma análise exploratória e técnica de um dataset de logística (entregas) na Índia, focado na identificação de padrões espaciais, limpeza de anomalias geográficas e validação de estratégias de entrega *Last-Mile*.
+This project presents an exploratory and technical analysis of a logistics (delivery) dataset in India, focusing on the identification of spatial patterns, cleaning of geographical anomalies, and validation of *Last-Mile* delivery strategies.
 
-## 1. Volume e Qualidade da Base
-O dataset de entregas conta com **43.739 registros**, apresentando uma estrutura sólida de dados numéricos (`float64`) e ausência total de valores nulos (NaN). Contudo, a integridade "visual" da base esconde inconsistências geográficas críticas. A análise estatística das coordenadas revelou que a Índia situa-se inteiramente no Hemisfério Norte (acima de $8^\circ$ N), mas registros com latitudes de -30.90 evidenciam erros de input. Além disso, cerca de **3.693 registros (8,4%)** localizam-se em áreas oceânicas ou possuem coordenadas próximas a zero, que atuariam como distorções em algoritmos de clustering.
+## 1. Volume and Data Quality
+The delivery dataset consists of **43,739 records**, featuring a solid structure of numerical data (`float64`) and a total absence of null values (NaN). However, the "visual" integrity of the database hides critical geographical inconsistencies. 
 
-## 2. Diagnóstico de Mercado e Hubs Econômicos
-A análise demonstra um domínio claro dos hubs econômicos, com concentração estratégica nos estados de **Maharashtra e Karnataka** (mais de 6.000 entregas cada). Isso reflete a importância de Mumbai e Bengaluru como centros financeiros e tecnológicos. 
+* **Geospatial Cleaning:** Statistical analysis revealed that while India is located above $8^\circ$ N, records with latitudes of -30.90 indicated input errors. 
+* **Anomaly Detection:** Approximately **3,693 records (8.4%)** were identified in oceanic areas or with coordinates near zero, which would have distorted clustering algorithms if not properly sanitized.
 
-A rede logística mostra-se perfeitamente alinhada à densidade demográfica: as Top 10 cidades possuem populações entre 8 e 12 milhões de habitantes, e a proximidade entre os pontos de origem e destino confirma uma operação de **baixa distância radial**. Isso valida a hipótese de fluxos predominantemente intramunicipais e uma estratégia de *Last-Mile* altamente capilarizada.
+## 2. Market Diagnosis and Economic Hubs
+The analysis demonstrates a clear dominance of economic hubs, with strategic concentration in the states of **Maharashtra and Karnataka** (over 6,000 deliveries each). This reflects the importance of Mumbai and Bengaluru as financial and technological centers. 
 
-## 3. Dinâmica de Demanda e Centros Médios
-Um *insight* crucial revelado pela escala logarítmica é a não linearidade da demanda. Identificamos um cluster de cidades de médio porte (entre $10^5$ e $10^6$ habitantes) com volumes de entrega que rivalizam com grandes metrópoles. Observamos que cidades com perfis demográficos similares apresentam volumes distintos, indicando que a infraestrutura local e a proximidade de centros de distribuição impactam o sucesso operacional mais do que apenas o contingente populacional.
+The logistics network is perfectly aligned with demographic density: the Top 10 cities have populations between 8 and 12 million inhabitants, and the proximity between origin and destination points confirms a **low radial distance** operation. This validates the hypothesis of predominantly intra-municipal flows and a highly capillary *Last-Mile* strategy.
 
-## Tecnologias Utilizadas
-* **Python:** Processamento e análise de dados.
-* **Pandas & NumPy:** Manipulação estatística.
-* **Matplotlib & Seaborn:** Visualização de dados (Escala Logarítmica e Dispersão).
-* **DBSCAN:** Algoritmo de clustering para identificação de padrões geográficos.
+
+
+## 3. Demand Dynamics and Mid-Sized Centers
+A crucial insight revealed by the logarithmic scale is the non-linearity of demand. 
+* **Key Finding:** We identified a cluster of mid-sized cities (between $10^5$ and $10^6$ inhabitants) with delivery volumes that rival large metropolises. 
+* **Operational Impact:** Cities with similar demographic profiles present distinct volumes, indicating that local infrastructure and proximity to distribution centers impact operational success more than just population size.
+
+
+
+## Technologies Used
+* **Python:** Core processing and analysis.
+* **Pandas & NumPy:** Statistical manipulation and data cleaning.
+* **Matplotlib & Seaborn:** Data visualization (Logarithmic Scales and Scatter Plots).
+* **DBSCAN:** Density-based clustering algorithm for identifying geographical patterns and outliers.
 
 ---
-*Este projeto faz parte de um estudo sobre otimização logística e tratamento de dados geoespaciais.*
+*This project is part of a study on logistics optimization and geospatial data processing.*
